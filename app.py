@@ -37,7 +37,7 @@ def updateStudent(student_id, student_name, email):
 @app.route("/delete/<student_id>")
 def deleteStudent(student_id):
     cur = mysql.connection.cursor()
-    cur.execute("DELETE FROM students WHERE studentID = %s", (student_id))
+    cur.execute("DELETE FROM students WHERE studentID = %s", [student_id])
     mysql.connection.commit()
     return "Successful delete!"
 
